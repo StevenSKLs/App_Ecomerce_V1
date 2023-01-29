@@ -27,3 +27,4 @@ const AppNavbar = () => {
 };
 
 export default AppNavbar;
+//object-fit: contain

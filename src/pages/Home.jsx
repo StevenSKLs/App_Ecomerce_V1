@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, InputGroup, Form  } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   filterproductsCategoryThunk,
-  getproductsThunk
+  getproductsThunk,
+  titleThunk
 } from "../store/slices/products.slice";
 
 const Home = () => {
@@ -23,9 +24,33 @@ const Home = () => {
       .then((res) => setCategories(res.data));
   }, []);
 
+  const [changeInput, setChangeInput] = useState('')
+
+  
+
   return (
     <div>
       <h1>Home</h1>
+      <InputGroup className="mb-3">
+        <Form.Control
+          placeholder="Recipient's username"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+          value={changeInput}
+
+          onChange={(e) => setChangeInput(e.target.value)}
+        />
+        <Button 
+        variant="outline-secondary" id="button-addon2"
+        onClick={()=> dispatch(titleThunk(changeInput))}
+        >
+          Buscar
+        </Button>
+      </InputGroup>
+
+
+
+
       {categories.map((category) => (
         <Button
           key={category.id}
