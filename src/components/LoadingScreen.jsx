@@ -14,8 +14,10 @@ const LoadingScreen = () => {
         <div></div>
         <div></div>
       </div>
+
     </div>
   );
 };
 
+//<span className="loader"></span></div>
 export default LoadingScreen;

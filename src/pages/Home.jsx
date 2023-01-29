@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, InputGroup, Form  } from "react-bootstrap";
+import { Button, InputGroup, Form, Card  } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -59,15 +59,25 @@ const Home = () => {
           {category.name}
         </Button>
       ))}
-      <ul>
-        {productsList.map((product) => (
-          <li key={product.id} onClick={() => navigate(`/products/${product.id}`)}>
-            {product.title}
-            <br />
-            <img src={product.images[0].url} alt="" style={{ width: 300 }} />
-          </li>
+      <div className="Card_Home">
+         {productsList.map((product) => (
+          <Card style={{ width: '18rem' }}
+          key={product.id}>
+          <Card.Img variant="top" src={product.images[0].url} />
+          <Card.Body>
+            <Card.Title>{product.title}</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </Card.Text>
+            <Button variant="primary" 
+            onClick={() => navigate(`/products/${product.id}`)}>Go somewhere</Button>
+          </Card.Body>
+        </Card>
         ))}
-      </ul>
+   
+      </div>
+       
     </div>
   );
 };
