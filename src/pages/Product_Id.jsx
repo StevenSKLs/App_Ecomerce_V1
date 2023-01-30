@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { filterproductsCategoryThunk} from "../store/slices/products.slice";
-import {Button, Card, Carousel} from 'react-bootstrap'
+import {Button, Card, Carousel, Col, Row} from 'react-bootstrap'
 
 const Product_Id = () => {
   const { id } = useParams();
@@ -24,41 +24,58 @@ const Product_Id = () => {
   }, [id]);
 
   return (
-    <div>
-      <h1>{products.title}</h1>
-      <p>{products.lead}</p>
-      {productsFiltered.map((productsOne) => (
-        <li key={productsOne.id} onClick={() => navigate(`/products/${productsOne.id}`)}>
-          {productsOne.title}
-        </li>
-      ))}
-      <p>{products.description}</p>
-
-      <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={products.images?.[0].url} />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
-
-
-
-
-    <Carousel fade>
+    <div style={{ marginTop: '7%'}}>
+     
+       <Row style={{margin: '1rem'}}>
+        <Col lg> 
+        <h1>{products.title}</h1>
+         <p>{products.lead}</p> 
+         <p>{products.description}</p>
+        </Col>
+        <Col lg>
+        <Carousel fade style={{}}>
       {products.images?.map(product => (
-          <Carousel.Item key={product.url}>
-        <img className="d-block w-100" src={product.url}
+          <Carousel.Item key={product.url} className="images_img">
+        <img className="d-block w-100" 
+        src={product.url}
           alt="First slide"
         />
       </Carousel.Item>
-        
       ))}
     </Carousel>
+        </Col>
+      </Row>
+      
+      <h2>Discover silimilar</h2>
+      <Row xs={1} md={2} lg ={3} className="g-4" 
+      style={{margin: '1rem', gap: '3rem', justifyContent: 'center'}}>
+
+      {productsFiltered.map((productsOne) => (
+          <Card style={{ width: '18rem' }}
+          key={productsOne.id}>
+            <div className="images_img">
+              <Card.Img variant="top" src={productsOne.images[0].url} />
+            </div>
+          
+          <Card.Body>
+            <p>{productsOne.brand}</p>
+            <Card.Title>{productsOne.title}</Card.Title>
+            <hr />
+            <p>Price</p>
+            <Card.Text>
+            {productsOne.price} $
+            </Card.Text>
+            <Button variant="primary" 
+            onClick={() => navigate(`/products/${productsOne.id}`)}><i className="bi bi-cart3"></i></Button>
+          </Card.Body>
+        </Card>
+        ))}
+
+    </Row>
+     
+     
+
+    
     </div>
   );
 };

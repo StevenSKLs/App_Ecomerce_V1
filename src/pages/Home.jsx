@@ -67,7 +67,7 @@ const Home = () => {
       </div>
       </div>
       
-      <div>
+      <div style={{margin: '7% 2% 0 2%'}}>
       <h1>Home</h1>
       <InputGroup className="mb-3">
         <Form.Control
@@ -93,7 +93,7 @@ const Home = () => {
 
       <Offcanvas show={show} onHide={handleClose} >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          <Offcanvas.Title>Menu</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
         <Button

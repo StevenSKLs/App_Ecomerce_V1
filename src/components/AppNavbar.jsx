@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 const AppNavbar = () => {
   return (
-    <Navbar expand="lg" variant="dark" bg="primary" size="lg" className="Nav_bar">
+    <Navbar expand="lg" variant="dark" bg="primary" size="lg" style={{ position: 'fixed',
+      width: '100%', zIndex: '300',top: '0'}}>
       <Container>
         <Navbar.Brand as={Link} to="/">
           News App
