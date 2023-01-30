@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { filterproductsCategoryThunk} from "../store/slices/products.slice";
-import {Button, Card} from 'react-bootstrap'
+import {Button, Card, Carousel} from 'react-bootstrap'
 
 const Product_Id = () => {
   const { id } = useParams();
@@ -46,6 +46,19 @@ const Product_Id = () => {
       </Card.Body>
     </Card>
 
+
+
+
+    <Carousel fade>
+      {products.images?.map(product => (
+          <Carousel.Item key={product.url}>
+        <img className="d-block w-100" src={product.url}
+          alt="First slide"
+        />
+      </Carousel.Item>
+        
+      ))}
+    </Carousel>
     </div>
   );
 };
