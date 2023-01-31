@@ -53,6 +53,11 @@
   width: 100%;
 }
 
+.colors_a a{
+background-color: red;
+}
+
+
 @media (min-width: 980px) {
   .Card_Home{
     display: grid;

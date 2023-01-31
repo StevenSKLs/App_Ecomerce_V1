@@ -32,7 +32,9 @@ const Product_Id = () => {
          <p>{products.lead}</p> 
          <p>{products.description}</p>
         </Col>
-        <Col lg>
+
+        <Col lg className='colors_a'>
+
         <Carousel fade style={{}}>
       {products.images?.map(product => (
           <Carousel.Item key={product.url} className="images_img">
@@ -42,6 +44,7 @@ const Product_Id = () => {
         />
       </Carousel.Item>
       ))}
+      
     </Carousel>
         </Col>
       </Row>
