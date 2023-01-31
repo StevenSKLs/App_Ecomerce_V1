@@ -35,7 +35,8 @@ const Product_Id = () => {
 
         <Col lg className='colors_a'>
 
-        <Carousel fade style={{}}>
+
+    <Carousel fade style={{}}>
       {products.images?.map(product => (
           <Carousel.Item key={product.url} className="images_img">
         <img className="d-block w-100" 

@@ -1,8 +1,16 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AppNavbar = () => {
+  const navigate = useNavigate()
+  
+  const logout = () =>{
+    localStorage.setItem('token', ''),
+    navigate('/login')
+  }
+
+
   return (
     <Navbar expand="lg" variant="dark" bg="primary" size="lg" style={{ position: 'fixed',
       width: '100%', zIndex: '300',top: '0'}}>
@@ -19,7 +27,7 @@ const AppNavbar = () => {
             <Nav.Link as={Link} to="/favorites">
               Favorites
             </Nav.Link>
-            <Nav.Link>Favorites (sidebar)</Nav.Link>
+            <Nav.Link onClick={logout}>Favorites (Log out)</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
