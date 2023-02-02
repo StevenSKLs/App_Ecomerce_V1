@@ -9,6 +9,7 @@ import AppNavbar from "./components/AppNavbar";
 import LoadingScreen from "./components/LoadingScreen";
 import { useSelector } from "react-redux";
 import ProtectedRoutes from "./components/ProtectedRoutes";
+import Div_end from "./components/Div_end";
 
 function App() {
   const isLoading = useSelector((state) => state.isLoading);
@@ -26,6 +27,7 @@ function App() {
         <Route path="/favorites" element={<Favorites />} />
         </Route>
       </Routes>
+      <Div_end/>
     </HashRouter>
   );
 }

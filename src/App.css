@@ -5,7 +5,7 @@
 }
 
 #root {
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
 }
 
@@ -57,6 +57,44 @@
 background-color: red;
 }
 
+.carousel-indicators [data-bs-target]{
+  background-color: red !important ;
+}
+
+.footer{
+  background: #2c3e50;
+    margin: 0;
+    color: white;
+    height: 18vh;
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+}
+
+.footer h2{
+  font-size: 1.2rem;
+}
+
+.footer_container{
+  display: flex;
+    justify-content: center;
+    gap: 2.3rem;
+}
+
+.footer_card{
+  background: red;
+  border-radius: 57%;
+  height: 3rem;
+  width: 3rem;
+  position: relative;
+}
+
+.footer_mincard{
+  position: absolute;
+  top: 9px;
+  left: 10px;
+}
+
 
 @media (min-width: 980px) {
   .Card_Home{
@@ -67,3 +105,9 @@ background-color: red;
     display: revert;
   }
 }
+
+
+
+
+
+

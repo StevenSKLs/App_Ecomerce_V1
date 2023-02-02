@@ -1,17 +1,25 @@
-import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import React, {useState } from "react";
+import { Button, Collapse, Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import Cart_push from './Cart_push'
+
 
 const AppNavbar = () => {
   const navigate = useNavigate()
   
   const logout = () =>{
-    localStorage.setItem('token', ''),
-    navigate('/login')
+    localStorage.setItem("token", "");
+    navigate("/login");
   }
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const [open, setOpen] = useState(false)
 
   return (
+    <>
     <Navbar expand="lg" variant="dark" bg="primary" size="lg" style={{ position: 'fixed',
       width: '100%', zIndex: '300',top: '0'}}>
       <Container>
@@ -20,18 +28,27 @@ const AppNavbar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/login">
-              Login
-            </Nav.Link>
-            <Nav.Link as={Link} to="/favorites">
-              Favorites
-            </Nav.Link>
-            <Nav.Link onClick={logout}>Favorites (Log out)</Nav.Link>
-          </Nav>
+
+        <Nav className="me-auto">
+              <Nav.Link as={Link} to="/login">
+                Login
+              </Nav.Link>
+              <Nav.Link as={Link} to="/favorites">
+                Favorites
+              </Nav.Link>
+              <Nav.Link onClick={handleShow}>Favorites (sidebar)</Nav.Link>
+              <Nav.Link onClick={logout}>Log out</Nav.Link>
+            </Nav>
+
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
+
+
+    <Cart_push show={show} handleClose={handleClose} />
+
+  </>
   );
 };
 

@@ -36,6 +36,7 @@ const Home = () => {
 
 
   return (
+    <>
     <div className="Card_Home">
       <div>
         <div className="card_menu">
@@ -85,7 +86,7 @@ const Home = () => {
           Buscar
         </Button>
       </InputGroup>
-
+ 
 
 <Button variant="primary" onClick={handleShow} >
         Launch
@@ -149,8 +150,9 @@ const Home = () => {
 
     </Row>
       </div>
-
     </div>
+    
+  </>
   );
 };
 

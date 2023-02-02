@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getFavoritesThunk } from "../store/slices/favorites.slice";
+import {getcart_productThunk } from "../store/slices/cart_product.slice";
 import { Link } from "react-router-dom";
 
-const Favorites = () => {
+const Cart_product = () => {
   const favorites = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getFavoritesThunk());
+    dispatch(getcart_productThunk());
   }, []);
 
 
@@ -27,4 +27,4 @@ const Favorites = () => {
   );
 };
 
-export default Favorites;
+export default Cart_product;

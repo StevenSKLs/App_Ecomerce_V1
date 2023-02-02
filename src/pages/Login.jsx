@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const { register, handleSubmit } = useForm();
 
-  const [loginUser, setloginUser] = useState()
 
   const navigate = useNavigate()
 
@@ -18,13 +17,16 @@ const Login = () => {
     navigate('/')
   }).catch(error =>{
       if(error.response.status === 401){
-        alert('tas bobo jajaja')
+        alert('tas loco jajaja')
       }
       console.log(error)
     })
   }
 
+ 
+
   return (
+    <>
     <Form onSubmit={handleSubmit(submit)} style={{marginTop: '7rem'}}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
@@ -50,6 +52,8 @@ const Login = () => {
         Submit
       </Button>
     </Form>
+   
+    </>
   );
 };
 

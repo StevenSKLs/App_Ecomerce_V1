@@ -24,30 +24,34 @@ const Product_Id = () => {
   }, [id]);
 
   return (
-    <div style={{ marginTop: '7%'}}>
+    <div style={{ marginTop: '8rem'}}>
      
        <Row style={{margin: '1rem'}}>
+
+       <Col lg className='colors_a'>
+<Carousel fade style={{}}>
+  {products.images?.map(product => (
+      <Carousel.Item key={product.url} className="images_img">
+    <img className="d-block w-100" 
+    src={product.url}
+      alt="First slide"
+    />
+  </Carousel.Item>
+  ))}
+  
+</Carousel>
+<div>
+
+</div>
+    </Col>
+
         <Col lg> 
         <h1>{products.title}</h1>
          <p>{products.lead}</p> 
          <p>{products.description}</p>
         </Col>
 
-        <Col lg className='colors_a'>
-
-
-    <Carousel fade style={{}}>
-      {products.images?.map(product => (
-          <Carousel.Item key={product.url} className="images_img">
-        <img className="d-block w-100" 
-        src={product.url}
-          alt="First slide"
-        />
-      </Carousel.Item>
-      ))}
-      
-    </Carousel>
-        </Col>
+        
       </Row>
       
       <h2>Discover silimilar</h2>
