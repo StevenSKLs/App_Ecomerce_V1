@@ -36,7 +36,7 @@ const AppNavbar = () => {
               <Nav.Link as={Link} to="/purchases">
               Purchases
               </Nav.Link>
-              <Nav.Link onClick={handleShow}>Favorites (sidebar)</Nav.Link>
+              <Nav.Link onClick={handleShow}>Car <i className="bi bi-cart3"></i></Nav.Link>
               <Nav.Link onClick={logout}>Log out</Nav.Link>
             </Nav>
 

@@ -26,19 +26,19 @@ const FavoritesSidebar = ({ show, handleClose }) => {
             <div  key={product.id} className='card_push'>
               <Row>
                 <Col>
-                <img src={product.product.images?.[0].url} alt="" className="img-fluid"/>
+                <img src={product.product?.images?.[0].url} alt="" className="img-fluid"/>
                 </Col>
                 <Col>
-                <p>{product.product.title}</p>
+                <p>{product.product?.title}</p>
             <hr />
             <p>Price</p>
-           <p>{product.product.price} $</p> 
+           <p>{product.product?.price} $</p> 
                 </Col>
               </Row>
             </div>
         ))}
-        
-      </Offcanvas.Body><button onClick={()=>{dispatch(purchaseCartThunk()) ,  dispatch(getcart_productThunk())}}>borrar o comprar</button>
+      </Offcanvas.Body>
+      <button onClick={()=>{dispatch(purchaseCartThunk()) ,  dispatch(getcart_productThunk())}}>borrar o comprar</button>
     </Offcanvas>
     </>
   );

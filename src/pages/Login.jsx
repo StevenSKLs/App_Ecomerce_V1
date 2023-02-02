@@ -17,42 +17,53 @@ const Login = () => {
     navigate('/')
   }).catch(error =>{
       if(error.response.status === 401){
-        alert('tas loco jajaja')
+        alert('Error data user')
       }
       console.log(error)
     })
   }
 
- 
+ console.log(localStorage)
 
   return (
     <>
+    {localStorage.token.length > 1 ? 
+    
+    <div style={{marginTop: '7rem'}}>
+      <h1><b>Welcome back user.</b></h1>
+      <hr />
+      <br />
+      <h2><b>What would you like to buy today?</b></h2>
+    </div>
+    :
     <Form onSubmit={handleSubmit(submit)} style={{marginTop: '7rem'}}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control
-          type="email"
-          placeholder="Enter email"
-          {...register("email")}
-        />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
+    <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Label>Email address</Form.Label>
+      <Form.Control
+        type="email"
+        placeholder="Enter email"
+        {...register("email")}
+      />
+      <Form.Text className="text-muted">
+        We'll never share your email with anyone else.
+      </Form.Text>
+    </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Password"
-          {...register("password")}
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
-   
+    <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Label>Password</Form.Label>
+      <Form.Control
+        type="password"
+        placeholder="Password"
+        {...register("password")}
+      />
+    </Form.Group>
+    <Button variant="primary" type="submit">
+      Submit
+    </Button>
+  </Form>
+ 
+  }
+    
     </>
   );
 };
