@@ -14,6 +14,7 @@ export const favoritesSlice = createSlice({
   }
 });
 
+
 export const getFavoritesThunk = () => (dispatch) => {
   dispatch(setIsLoading(true));
   return axios
@@ -21,6 +22,19 @@ export const getFavoritesThunk = () => (dispatch) => {
     .then((res) => dispatch(setFavorites(res.data)))
     .finally(() => dispatch(setIsLoading(false)));
 };
+
+export const purchaseCartThunk = () => (dispatch) => {
+  dispatch(setIsLoading(true));
+  return axios
+    .post(
+      "https://e-commerce-api-v2.academlo.tech/api/v1/purchases",
+      {},
+      getConfig()
+    )
+    .then((res) => dispatch(getFavoritesThunk())) // dispatch(setCart([]))
+    .finally(() => dispatch(setIsLoading(false)));
+};
+
 
 export const { setFavorites } = favoritesSlice.actions;
 

@@ -95,6 +95,11 @@ background-color: red;
   left: 10px;
 }
 
+.card_push{
+  width: 90%;
+  margin: 1rem;
+}
+
 
 @media (min-width: 980px) {
   .Card_Home{

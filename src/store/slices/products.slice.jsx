@@ -16,7 +16,7 @@ export const productsSlice = createSlice({
 export const getproductsThunk = () => (dispatch) => {
   dispatch(setIsLoading(true));
   axios
-    .get("https://e-commerce-api-v2.academlo.tech/api/v1/products/")
+    .get("https://e-commerce-api-v2.academlo.tech/api/v1/products")
     .then((res) => dispatch(setproducts(res.data)))
     .finally(() => dispatch(setIsLoading(false)));
 };

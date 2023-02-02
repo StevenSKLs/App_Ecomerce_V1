@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { filterproductsCategoryThunk} from "../store/slices/products.slice";
 import {Button, Card, Carousel, Col, Row} from 'react-bootstrap'
+import { add_product_CartThunk } from "../store/slices/cart_product.slice";
 
 const Product_Id = () => {
   const { id } = useParams();
@@ -23,23 +24,42 @@ const Product_Id = () => {
     });
   }, [id]);
 
+
+  const [rate, setRate] = useState("");
+
+  const addToFavorites = (id) => {
+    const favorite = {
+    quantity: rate,
+    productId: products.id,
+    };
+    dispatch(add_product_CartThunk(favorite));
+  };
+
+
+
   return (
     <div style={{ marginTop: '8rem'}}>
      
        <Row style={{margin: '1rem'}}>
 
        <Col lg className='colors_a'>
-<Carousel fade style={{}}>
-  {products.images?.map(product => (
-      <Carousel.Item key={product.url} className="images_img">
-    <img className="d-block w-100" 
-    src={product.url}
-      alt="First slide"
+          <Carousel fade style={{}}>
+            {products.images?.map(product => (
+              <Carousel.Item key={product.url} className="images_img">
+                <img className="d-block w-100"
+                  src={product.url}
+                  alt="First slide"
     />
   </Carousel.Item>
   ))}
   
 </Carousel>
+<input
+        type="text"
+        value={rate}
+        onChange={(e) => setRate(e.target.value)}
+      />
+      <Button onClick={addToFavorites}>Add to favorites</Button>
 <div>
 
 </div>

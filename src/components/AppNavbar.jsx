@@ -33,8 +33,8 @@ const AppNavbar = () => {
               <Nav.Link as={Link} to="/login">
                 Login
               </Nav.Link>
-              <Nav.Link as={Link} to="/favorites">
-                Favorites
+              <Nav.Link as={Link} to="/purchases">
+              Purchases
               </Nav.Link>
               <Nav.Link onClick={handleShow}>Favorites (sidebar)</Nav.Link>
               <Nav.Link onClick={logout}>Log out</Nav.Link>

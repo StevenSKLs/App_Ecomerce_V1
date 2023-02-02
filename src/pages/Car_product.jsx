@@ -4,7 +4,7 @@ import {getcart_productThunk } from "../store/slices/cart_product.slice";
 import { Link } from "react-router-dom";
 
 const Cart_product = () => {
-  const favorites = useSelector((state) => state.products);
+  const favorites = useSelector((state) => state.cart_product);
   const dispatch = useDispatch();
 
   useEffect(() => {
