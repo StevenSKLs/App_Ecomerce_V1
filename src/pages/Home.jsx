@@ -46,7 +46,7 @@ const Home = () => {
                 aria-controls="example-collapse-text"
                 aria-expanded={open}
               >
-                click
+                Categoty
               </Button>
               <Collapse in={open}>
                 <div id="example-collapse-text">
@@ -83,13 +83,13 @@ const Home = () => {
               variant="outline-secondary" id="button-addon2"
               onClick={() => dispatch(titleThunk(changeInput))}
             >
-              Buscar
+              Go
             </Button>
           </InputGroup>
 
 
-          <Button variant="primary" onClick={handleShow} >
-            Launch
+          <Button variant="primary" onClick={handleShow} className='none_button'>
+            Filter menu
           </Button>
 
           <Offcanvas show={show} onHide={handleClose} >
@@ -106,7 +106,7 @@ const Home = () => {
                   width: '7rem'
                 }}
               >
-                click
+                Categoty
               </Button>
               <Collapse in={open}>
                 <div id="example-collapse-text">

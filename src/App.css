@@ -73,6 +73,7 @@ background-color: red;
 
 .footer h2{
   font-size: 1.2rem;
+  margin: 1rem 0;
 }
 
 .footer_container{
@@ -82,7 +83,7 @@ background-color: red;
 }
 
 .footer_card{
-  background: red;
+  background: #282a36;
   border-radius: 57%;
   height: 3rem;
   width: 3rem;
@@ -91,14 +92,16 @@ background-color: red;
 
 .footer_mincard{
   position: absolute;
-  top: 9px;
-  left: 10px;
+  top: 10px;
+  left: 14.5px;
+  font-size: 1.2rem;
 }
 
 .card_push{
   width: 90%;
   margin: 1rem;
 }
+
 
 
 @media (min-width: 980px) {
@@ -109,6 +112,9 @@ background-color: red;
   .card_menu{
     display: revert;
   }
+  .none_button{
+  display: none !important;
+}
 }
 
 

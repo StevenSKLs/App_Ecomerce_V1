@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Card, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import user_academlo from '../assets/user_academlo.png'
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -23,20 +24,30 @@ const Login = () => {
     })
   }
 
- console.log(localStorage)
+  //modific
+  const logout = () =>{
+    localStorage.setItem("token", "");
+    navigate("/login");
+  }
 
   return (
     <>
     {localStorage.token.length > 1 ? 
-    
-    <div style={{marginTop: '7rem'}}>
-      <h1><b>Welcome back user.</b></h1>
-      <hr />
-      <br />
-      <h2><b>What would you like to buy today?</b></h2>
-    </div>
+    <div>
+      
+    <Card style={{ width: '18rem' , margin: '10vh auto'}}>
+      <Card.Img variant="top" src={`${user_academlo}`} />
+      <Card.Body>
+        <Card.Title>Welcome back user.</Card.Title>
+        <Card.Text>
+        What would you like to buy today?
+        </Card.Text>
+        <Button variant="primary" onClick={() => logout()}><b>Log Out</b></Button>
+      </Card.Body>
+    </Card>
+     </div>
     :
-    <Form onSubmit={handleSubmit(submit)} style={{marginTop: '7rem'}}>
+    <Form onSubmit={handleSubmit(submit)} style={{margin: '14vh 6%'}}>
     <Form.Group className="mb-3" controlId="formBasicEmail">
       <Form.Label>Email address</Form.Label>
       <Form.Control
@@ -60,8 +71,20 @@ const Login = () => {
     <Button variant="primary" type="submit">
       Submit
     </Button>
+    <Card style={{ width: '18rem' , margin: '10vh auto'}}>
+      <Card.Body>
+        <Card.Img variant="top" src={`${user_academlo}`} style={{ height:'7rem', width: '7rem', background: 'radial-gradient(black, transparent)',
+    marginBottom: '1rem'}}/>
+        <Card.Title>Definite example.</Card.Title>
+        <Card.Text>
+        user: hola_mundo@gmail.com
+        <hr />
+        password: hola_mundo@gmail.com
+        </Card.Text>
+      </Card.Body>
+    </Card>
   </Form>
- 
+
   }
     
     </>

@@ -37,7 +37,6 @@ const AppNavbar = () => {
               Purchases
               </Nav.Link>
               <Nav.Link onClick={handleShow}>Car <i className="bi bi-cart3"></i></Nav.Link>
-              <Nav.Link onClick={logout}>Log out</Nav.Link>
             </Nav>
 
 

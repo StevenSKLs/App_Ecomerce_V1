@@ -13,7 +13,6 @@ const FavoritesSidebar = ({ show, handleClose }) => {
     dispatch(getcart_productThunk());
   }, []);
 
-  console.log(products_cart)
 
   return (
     <>
