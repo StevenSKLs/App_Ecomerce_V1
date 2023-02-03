@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Card, Col, Offcanvas, Row } from "react-bootstrap";
+import { Button, Card, Col, Offcanvas, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {getcart_productThunk } from "../store/slices/cart_product.slice";
 import { purchaseCartThunk } from "../store/slices/purchases.slice";
@@ -17,8 +17,10 @@ const FavoritesSidebar = ({ show, handleClose }) => {
   return (
     <>
     <Offcanvas placement="end" show={show} onHide={handleClose}>
-      <Offcanvas.Header closeButton>
-        <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+      <Offcanvas.Header closeButton style={{    background: '#233240',
+    color: 'white'}}>
+        <Offcanvas.Title>
+      Welcome to your shopping cart <i className="bi bi-cart3"></i></Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
         {products_cart.map(product =>(  
@@ -37,7 +39,10 @@ const FavoritesSidebar = ({ show, handleClose }) => {
             </div>
         ))}
       </Offcanvas.Body>
-      <button onClick={()=>{dispatch(purchaseCartThunk()) ,  dispatch(getcart_productThunk())}}>borrar o comprar</button>
+      <Button onClick={()=>{dispatch(purchaseCartThunk()) ,  dispatch(getcart_productThunk())}}
+      style={{height: '9rem'}}>
+        Buy cart product <i className="bi bi-cart3"></i>
+        </Button>
     </Offcanvas>
     </>
   );

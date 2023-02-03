@@ -67,7 +67,7 @@ const Product_Id = () => {
         <Col lg>
           <h1>{products.title}</h1>
           <p>{products.lead}</p>
-          <p>{products.description}</p>
+          <p style={{textAlign: 'justify'}}>{products.description}</p>
         </Col>
 
 
