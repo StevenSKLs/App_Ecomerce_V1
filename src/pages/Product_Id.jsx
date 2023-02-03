@@ -81,7 +81,7 @@ const Product_Id = () => {
           <Card style={{ width: '18rem' }}
             key={productsOne.id}>
             <div className="images_img">
-              <Card.Img variant="top" src={productsOne.images[0].url} />
+              <Card.Img variant="top" src={productsOne.images[0].url} onClick={() => navigate(`/products/${productsOne.id}`)}/>
             </div>
 
             <Card.Body>

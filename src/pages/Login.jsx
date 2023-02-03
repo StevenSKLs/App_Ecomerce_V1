@@ -76,9 +76,10 @@ const Login = () => {
         <Card.Img variant="top" src={`${user_academlo}`} style={{ height:'7rem', width: '7rem', background: 'radial-gradient(black, transparent)',
     marginBottom: '1rem'}}/>
         <Card.Title>Definite example.</Card.Title>
+        <hr />
         <Card.Text>
         user: hola_mundo@gmail.com
-        <hr />
+       
         password: hola_mundo@gmail.com
         </Card.Text>
       </Card.Body>

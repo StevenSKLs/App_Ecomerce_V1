@@ -52,9 +52,10 @@ const Home = () => {
                 <div id="example-collapse-text">
                   <div>
                     {categories.map((category) => (
-                      <p
+                      <p 
                         key={category.id}
                         onClick={() => { dispatch(filterproductsCategoryThunk(category.id)); handleClose() }}
+                      style={{cursor: 'pointer'}}
                       >
                         {category.name}
                       </p>
@@ -115,6 +116,7 @@ const Home = () => {
                       <p
                         key={category.id}
                         onClick={() => { dispatch(filterproductsCategoryThunk(category.id)); handleClose() }}
+                        style={{cursor: 'pointer'}}
                       >
                         {category.name}
                       </p>
