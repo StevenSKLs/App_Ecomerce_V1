@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getFavoritesThunk } from "../store/slices/purchases.slice";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Card , Row } from "react-bootstrap";
+import Paginate from './Paginate'
 
 const Purchases = () => {
   const purchases = useSelector((state) => state.favorites);
@@ -14,13 +15,32 @@ const Purchases = () => {
 
   const navigate = useNavigate()
 
-  console.log(purchases)
+  
+    const [page, setPage] = useState(1)
+    // const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(6);
+  
+    const lastPage = page * postsPerPage;
+    const firstPage = lastPage - postsPerPage;
+
+    const UsersPaginated = purchases.slice(firstPage, lastPage);
+    const paginate = pageNumber => setPage(pageNumber);
+  
+
+
+
   return (
     <div style={{marginTop:'5rem'}}>
       <h1><b>Welcom you purchases</b></h1>
+      <Paginate
+        postsPerPage={postsPerPage}
+        totalPosts={purchases.length}
+        paginate={paginate}
+        page={page}
+      />
     <Row xs={1} md={2} lg={3} className="g-4"
            style={{ margin: '1rem', gap: '3rem', justifyContent: 'center' }}>
-      {purchases.map((productsOne) => (
+      {UsersPaginated.map((productsOne) => (
           <Card style={{ width: '18rem' }}
           key={productsOne.id}>
             <div className="images_img">
@@ -40,6 +60,13 @@ const Purchases = () => {
         </Card>
         ))}
    </Row>
+
+   <Paginate
+        postsPerPage={postsPerPage}
+        totalPosts={purchases.length}
+        paginate={paginate}
+        page={page}
+      />
     </div>
   );
 };

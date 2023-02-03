@@ -103,7 +103,21 @@ background-color: red;
   margin: 1rem;
 }
 
+.pagination{
+  display: flex;
+    justify-content: center;
+    gap: 1vh;
+    margin-top: 3vh;
+}
 
+.bootons2{
+  background: #2c3e50;
+  margin: 1rem;
+  border: none;
+  color: #fff;
+  height: 4vh;
+  width: 5vh;
+}
 
 @media (min-width: 980px) {
   .Card_Home{

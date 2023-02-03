@@ -68,7 +68,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div style={{ margin: '9vh 2% 0px' }}>
+        <div style={{ margin: '12vh 2% 0px' }}>
           <h1>Home</h1>
           <InputGroup className="mb-3">
             <Form.Control
